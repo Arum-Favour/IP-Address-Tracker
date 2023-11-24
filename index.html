@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link href="./style.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <title>IP Address Tracker</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  </head>
+  <body>
+    <main>
+      <div id="headerSect">
+        <p id="headerText">IP Address Tracker</p>
+        <div id="inputBox">
+          <input
+            type="text"
+            placeholder="Search for any IP address or domain"
+          />
+          <div id="icon-arrow">
+            <img src="./images/icon-arrow.svg" alt="arrowImg" />
+          </div>
+        </div>
+        <div id="details-Con">
+          <div class="details">
+            <p class="label">IP Address</p>
+            <p class="result"></p>
+          </div>
+          <span></span>
+          <div class="details">
+            <p class="label">Location</p>
+            <p class="result"></p>
+          </div>
+          <span></span>
+          <div class="details">
+            <p class="label">Timezone</p>
+            <p class="result">UTC</p>
+          </div>
+          <span></span>
+          <div class="details">
+            <p class="label">ISP</p>
+            <p class="result"></p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
