@@ -89,7 +89,19 @@ span{
     font-weight: 400;
     color: hsl(0, 0%, 59%);
 }
-.result{
+.Ipresult{
+    font-weight: 700;
+    color: hsl(0, 0%, 17%);
+}
+.Loc_result{
+    font-weight: 700;
+    color: hsl(0, 0%, 17%);
+}
+.time_result{
+    font-weight: 700;
+    color: hsl(0, 0%, 17%);
+}
+.ispresult{
     font-weight: 700;
     color: hsl(0, 0%, 17%);
 }
