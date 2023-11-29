@@ -68,6 +68,7 @@ input {
     height: 20%;
     background-color: white;
     border-radius: 20px;
+    z-index: 2000;
 }
 .details{
     gap: 10px;
@@ -106,8 +107,6 @@ span{
     color: hsl(0, 0%, 17%);
 }
 #map{
-    display: flex;
     width: 100%;
     height: 100%;
-    background-color: blue;
 }

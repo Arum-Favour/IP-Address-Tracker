@@ -32,14 +32,13 @@
       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
       crossorigin=""
     ></script>
-    <script src="./index.js"></script>
 
     <title>IP Address Tracker</title>
 
     <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   </head>
-  <body>
-    <main>
+  <body onload="displayIpMap()">
+    <main >
       <div id="headerSect">
         <p id="headerText">IP Address Tracker</p>
         <div id="inputBox">
@@ -64,7 +63,7 @@
           <span></span>
           <div class="details">
             <p class="label">Timezone</p>
-            <p class="time_result">UTC</p>
+            <p class="time_result"> </p>
           </div>
           <span></span>
           <div class="details">
@@ -75,5 +74,6 @@
       </div>
       <div id="map"></div>
     </main>
+    <script src="./index.js"></script>
   </body>
 </html>
