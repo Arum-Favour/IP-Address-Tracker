@@ -20,7 +20,7 @@ async function getLocation() {
     );
     const result = await getLocation.json();
     Ipresult.innerHTML = result.ip;
-    ipLocation.innerHTML = result.location.region;
+    ipLocation.innerHTML = result.location.region +","+result.location.city;
     timeResult.innerHTML = "UTC " + result.location.timezone;
     ispResult.innerHTML = result.isp;
     let longitude = result.location.lng;
@@ -73,7 +73,7 @@ async function displayIpMap() {
   );
   const result = await getLocation.json();
   Ipresult.innerHTML = result.ip;
-  ipLocation.innerHTML = result.location.region;
+  ipLocation.innerHTML = result.location.region + ","+ result.location.city;
   timeResult.innerHTML = "UTC " + result.location.timezone;
   ispResult.innerHTML = result.isp;
 
