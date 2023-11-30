@@ -1,11 +1,11 @@
-var map;
-var Input_text = document.querySelector("input");
-var Ip_address;
-var domain_name;
-var Ipresult = document.querySelector(".Ipresult");
-var ipLocation = document.querySelector(".Loc_result");
-var timeResult = document.querySelector(".time_result");
-var ispResult = document.querySelector(".ispresult");
+let map;
+let Input_text = document.querySelector("input");
+let Ip_address;
+let domain_name;
+let Ipresult = document.querySelector(".Ipresult");
+let ipLocation = document.querySelector(".Loc_result");
+let timeResult = document.querySelector(".time_result");
+let ispResult = document.querySelector(".ispresult");
 
 async function getLocation() {
   let regex = /www\..*\.com/i;
@@ -26,14 +26,15 @@ async function getLocation() {
     let longitude = result.location.lng;
     let latitude = result.location.lat;
 
-    var container = L.DomUtil.get("map");
-    if (container != null) {
-      container._leaflet_id = null;
-    }
-    map = L.map("map").setView([latitude, longitude], 13);
-    map.dragging.enable();
-    
-    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    // var container = L.DomUtil.get("map");
+    // if (container != null) {
+    //   container._leaflet_id = null;
+    // }
+
+    map.remove();
+
+    map = L.map("map").setView([latitude, longitude], 16);
+    container.L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
       maxZoom: 19,
       attribution:
         '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
