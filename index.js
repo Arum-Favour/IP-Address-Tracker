@@ -20,7 +20,7 @@ async function getLocation() {
     );
     const result = await getLocation.json();
     Ipresult.innerHTML = result.ip;
-    ipLocation.innerHTML = result.location.region +","+result.location.city;
+    ipLocation.innerHTML = result.location.region + "," + result.location.city;
     timeResult.innerHTML = "UTC " + result.location.timezone;
     ispResult.innerHTML = result.isp;
     let longitude = result.location.lng;
@@ -31,7 +31,8 @@ async function getLocation() {
       container._leaflet_id = null;
     }
     map = L.map("map").setView([latitude, longitude], 13);
-
+    map.dragging.enable();
+    
     L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
       maxZoom: 19,
       attribution:
@@ -73,7 +74,7 @@ async function displayIpMap() {
   );
   const result = await getLocation.json();
   Ipresult.innerHTML = result.ip;
-  ipLocation.innerHTML = result.location.region + ","+ result.location.city;
+  ipLocation.innerHTML = result.location.region + "," + result.location.city;
   timeResult.innerHTML = "UTC " + result.location.timezone;
   ispResult.innerHTML = result.isp;
 
