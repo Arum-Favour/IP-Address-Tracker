@@ -37,8 +37,8 @@
 
     <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   </head>
-  <body onload="displayIpMap()">
-    <main >
+  <body >
+    <main>
       <div id="headerSect">
         <p id="headerText">IP Address Tracker</p>
         <div id="inputBox">
@@ -46,7 +46,7 @@
             type="text"
             placeholder="Search for any IP address or domain"
           />
-          <div id="icon-arrow" onclick="getLocation()">
+          <div id="icon-arrow" onclick="updateMapLocation()">
             <img src="./images/icon-arrow.svg" alt="arrowImg" />
           </div>
         </div>
@@ -63,7 +63,7 @@
           <span></span>
           <div class="details">
             <p class="label">Timezone</p>
-            <p class="time_result"> </p>
+            <p class="time_result"></p>
           </div>
           <span></span>
           <div class="details">
@@ -74,6 +74,6 @@
       </div>
       <div id="map"></div>
     </main>
-    <script src="./index.js"></script>
   </body>
+  <script src="./index.js"></script>
 </html>
