@@ -1,3 +1,5 @@
+let map;
+let marker;
 let Ip_address;
 let domain_name;
 let latitude;
@@ -8,14 +10,6 @@ let timeResult = document.querySelector(".time_result");
 let ispResult = document.querySelector(".ispresult");
 
 displayIp();
-let map = L.map("map").setView([latitude, longitude], 13);
-L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-  maxZoom: 19,
-  attribution:
-    '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-}).addTo(map);
-
-let marker = L.marker([latitude, longitude]).addTo(map);
 
 //CODE THAT DISPLAYS THE IP ADDRESS DETAILS AND MAP AT LOAD
 async function displayIp() {
@@ -24,12 +18,21 @@ async function displayIp() {
   );
   const result = await getLocation.json();
   Ipresult.innerHTML = result.ip;
-  ipLocation.innerHTML = result.location.region + "," +result.location.city;
+  ipLocation.innerHTML = result.location.region + "," + result.location.city;
   timeResult.innerHTML = "UTC " + result.location.timezone;
   ispResult.innerHTML = result.isp;
   longitude = result.location.lng;
   latitude = result.location.lat;
   console.log(longitude, latitude);
+
+  map = L.map("map").setView([latitude, longitude], 13);
+  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    maxZoom: 19,
+    attribution:
+      '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+  }).addTo(map);
+
+  marker = L.marker([latitude, longitude]).addTo(map);
 }
 
 //CODE TO GET LOCATION AND IP ADRESS DETAILS OF SEARCH
@@ -52,15 +55,18 @@ async function updateMapLocation() {
     ispResult.innerHTML = result.isp;
     longitude = result.location.lng;
     latitude = result.location.lat;
+    if (map) {
+      map.off();
+      map.remove();
+    }
+    map = L.map("map").setView([latitude, longitude], 13);
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 19,
+      attribution:
+        '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    }).addTo(map);
 
-    map.whenReady(function () {
-      if (latitude && longitude) {
-        map.setView([latitude, longitude], 13);
-        marker.setLatLng([latitude, longitude]);
-      }
-    });
-
-    // map.setView([latitude, longitude], 13);
+    marker = L.marker([latitude, longitude]).addTo(map);
   } else {
     Ip_address = Input_text.value;
     const getLocation = await fetch(
