@@ -1,4 +1,5 @@
 let map;
+let myIcon;
 let marker;
 let Ip_address;
 let domain_name;
@@ -32,7 +33,14 @@ async function displayIp() {
       '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
   }).addTo(map);
 
-  marker = L.marker([latitude, longitude]).addTo(map);
+    myIcon = L.icon({
+    iconUrl: 'images/icon-location.svg',
+    iconSize: [35, 45],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41]
+});
+  marker = L.marker([latitude, longitude], {icon: myIcon}).addTo(map);
 }
 
 //CODE TO GET LOCATION AND IP ADRESS DETAILS OF SEARCH
@@ -67,6 +75,7 @@ async function updateMapLocation() {
     }).addTo(map);
 
     marker = L.marker([latitude, longitude]).addTo(map);
+    marker.style.backgroundColor = "black";
   } else {
     Ip_address = Input_text.value;
     const getLocation = await fetch(
