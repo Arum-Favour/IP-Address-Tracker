@@ -35,7 +35,7 @@ async function displayIp() {
 
     myIcon = L.icon({
     iconUrl: 'images/icon-location.svg',
-    iconSize: [35, 45],
+    iconSize: [35, 45 ],
     iconAnchor: [12, 41],
     popupAnchor: [1, -34],
     shadowSize: [41, 41]
