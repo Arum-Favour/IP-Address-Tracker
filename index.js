@@ -6,7 +6,7 @@ let domain_name;
 let latitude;
 let longitude;
 let cordinates;
-let Ipresult = document.querySelector(".Ipresult");
+let Ipresult = document.querySelector (".Ipresult");
 let ipLocation = document.querySelector(".Loc_result");
 let timeResult = document.querySelector(".time_result");
 let ispResult = document.querySelector(".ispresult");
