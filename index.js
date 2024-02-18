@@ -15,16 +15,16 @@ displayIp();
 
 //CODE THAT DISPLAYS THE IP ADDRESS DETAILS AND MAP ON LOAD
 async function displayIp() {
-  const targetUrl = "https://ipapi.co/json/";
+  const targetUrl = "https://geo.ipify.org/api/v2/country,city?apiKey=at_75vDpArHsmgtf7msf53N67iLkRnt4&ipAddress";
 
   const getLocation = await fetch(targetUrl);
   const result = await getLocation.json();
   Ipresult.innerHTML = result.ip;
-  ipLocation.innerHTML = result.region + "," + result.country_name;
-  timeResult.innerHTML = "UTC " + result.timezone;
-  ispResult.innerHTML = result.org;
-  longitude = result.longitude;
-  latitude = result.latitude;
+  ipLocation.innerHTML = result.location.region + "," + result.location.country;
+  timeResult.innerHTML = "UTC " + result.location.timezone;
+  ispResult.innerHTML = result.isp;
+  longitude = result.location.lng;
+  latitude = result.location.lat;
   console.log(longitude, latitude);
 
   map = L.map("map").setView([latitude, longitude], 13);
@@ -54,17 +54,17 @@ async function updateMapLocation() {
   if (Input_text.value.match(regex) || Input_text.value.match(anotherRegex)) {
     domain_name = Input_text.value;
     const getLocation = await fetch(
-      `https://ipapi.co/domain/${domain_name}/json/
+      `https://geo.ipify.org/api/v2/country,city?apiKey=at_75vDpArHsmgtf7msf53N67iLkRnt4&domain=${domain_name}
       `
     );
-    const result = getLocation;
+    const result = await getLocation.json();
 
     Ipresult.innerHTML = result.ip;
-    ipLocation.innerHTML = result.region + "," + result.country_name;
-    timeResult.innerHTML = "UTC " + result.timezone;
-    ispResult.innerHTML = result.org;
-    longitude = longitude;
-    latitude = latitude;
+    ipLocation.innerHTML = result.location.region + "," + result.location.country;
+    timeResult.innerHTML = "UTC " + result.location.timezone;
+    ispResult.innerHTML = result.isp;
+    longitude = result.location.lng;
+    latitude = result.location.lat;
     console.log(result);
 
     if (map) {
@@ -82,14 +82,14 @@ async function updateMapLocation() {
     marker.style.backgroundColor = "black";
   } else {
     Ip_address = Input_text.value;
-    const getLocation = await fetch(`https://ipapi.co/${Ip_address}/{format}/`);
+    const getLocation = await fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=at_75vDpArHsmgtf7msf53N67iLkRnt4&ipAddress`);
     const result = await getLocation.json();
     Ipresult.innerHTML = result.ip;
-    ipLocation.innerHTML = result.region + "," + result.city;
-    timeResult.innerHTML = "UTC " + result.timezone;
-    ispResult.innerHTML = result.org;
-    let longitude = result.longitude;
-    let latitude = result.longitude;
+    ipLocation.innerHTML = result.location.region + "," + result.location.country;
+    timeResult.innerHTML = "UTC " + result.location.timezone;
+    ispResult.innerHTML = result.isp;
+    longitude = result.location.lng;
+    latitude = result.location.lat;
 
     if (map) {
       map.off();
