@@ -16,7 +16,6 @@ displayIp();
 //CODE THAT DISPLAYS THE IP ADDRESS DETAILS AND MAP ON LOAD
 async function displayIp() {
   const targetUrl = "https://ipapi.co/json/";
-  const proxyUrl = "https://cors-anywhere.herokuapp.com/";
 
   const getLocation = await fetch(targetUrl);
   const result = await getLocation.json();
@@ -58,7 +57,7 @@ async function updateMapLocation() {
       `https://ipapi.co/domain/${domain_name}/json/
       `
     );
-    const result = await getLocation.json();
+    const result = getLocation;
 
     Ipresult.innerHTML = result.ip;
     ipLocation.innerHTML = result.region + "," + result.country_name;
